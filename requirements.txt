@@ -1,0 +1,32 @@
+# Discord Bot
+discord.py>=2.3.2
+python-dotenv>=1.0.0
+
+# Database - PostgreSQL
+asyncpg>=0.29.0
+sqlalchemy[asyncio]>=2.0.25
+greenlet>=3.0.0
+
+# HTTP Requests
+aiohttp>=3.9.1
+httpx>=0.26.0
+
+# Payment Gateway (Mercado Pago)
+mercadopago>=2.2.1
+
+# Utilities
+python-dateutil>=2.8.2
+pytz>=2023.3
+colorama>=0.4.6
+loguru>=0.7.2
+
+# Security
+cryptography>=41.0.7
+pyjwt>=2.8.0
+
+# Validation
+pydantic>=2.5.3
+pydantic-settings>=2.1.0
+
+# Rate Limiting
+aiolimiter>=1.1.0
