@@ -4,250 +4,256 @@
   <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
   <br>
-  🎮 Robux Sales Bot
+  🎮 Bot de Vendas de Robux
   <br>
 </h1>
 
 <p align="center">
-  <strong>A professional Discord bot for automated Robux sales with PIX payment integration and secure Gamepass delivery.</strong>
+  <strong>Bot profissional para Discord com vendas automatizadas de Robux, integração com pagamentos PIX e entrega segura via Gamepass.</strong>
 </p>
 
 <p align="center">
-  <a href="#-features">Features</a> •
-  <a href="#-tech-stack">Tech Stack</a> •
-  <a href="#-architecture">Architecture</a> •
-  <a href="#-installation">Installation</a> •
-  <a href="#-configuration">Configuration</a> •
-  <a href="#-usage">Usage</a> •
-  <a href="#-license">License</a>
+  <a href="#-funcionalidades">Funcionalidades</a> •
+  <a href="#-tecnologias">Tecnologias</a> •
+  <a href="#-arquitetura">Arquitetura</a> •
+  <a href="#-instalação">Instalação</a> •
+  <a href="#-configuração">Configuração</a> •
+  <a href="#-uso">Uso</a> •
+  <a href="#-licença">Licença</a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Production-brightgreen?style=flat-square" alt="Status">
-  <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/Status-Produção-brightgreen?style=flat-square" alt="Status">
+  <img src="https://img.shields.io/badge/Licença-MIT-blue?style=flat-square" alt="Licença">
   <img src="https://img.shields.io/badge/discord.py-2.3+-5865F2?style=flat-square" alt="discord.py">
 </p>
 
 ---
 
-## 📋 Overview
+## 📋 Visão Geral
 
-This project is a **full-featured Discord bot** designed to automate the sale and delivery of Robux (Roblox virtual currency). It integrates with **Mercado Pago** for PIX payments (Brazilian instant payment system) and the **Roblox API** for secure Gamepass-based delivery.
+Este projeto é um **bot completo para Discord** desenvolvido para automatizar a venda e entrega de Robux (moeda virtual do Roblox). Integra-se com o **Mercado Pago** para pagamentos via PIX e com a **API do Roblox** para entrega segura via Gamepass.
 
-> ⚠️ **Note:** This is a portfolio project demonstrating backend development, API integration, and asynchronous programming skills. Robux trading involves Roblox's Terms of Service considerations.
+> ⚠️ **Nota:** Este é um projeto de portfólio que demonstra habilidades em desenvolvimento backend, integração com APIs e programação assíncrona. A comercialização de Robux envolve considerações sobre os Termos de Serviço do Roblox.
 
-## ✨ Features
+## ✨ Funcionalidades
 
-### Payment & Transactions
-- 🔐 **Automated PIX Payments** - Integration with Mercado Pago API for instant Brazilian PIX payments
-- ⏱️ **Real-time Payment Verification** - Automatic polling for payment confirmation
-- 🧾 **Transaction Logging** - Complete audit trail of all transactions
+### Pagamentos e Transações
 
-### Roblox Integration
-- 🎮 **Secure Gamepass Delivery** - Uses Roblox's official Gamepass system (ToS-compliant method)
-- 👤 **User Verification** - Validates Roblox usernames and IDs via API
-- 🍪 **Session Management** - Secure handling of Roblox authentication
+- 🔐 **Pagamentos PIX Automatizados** - Integração com API do Mercado Pago para pagamentos instantâneos
+- ⏱️ **Verificação em Tempo Real** - Polling automático para confirmação de pagamentos
+- 🧾 **Registro de Transações** - Histórico completo de todas as operações
 
-### Discord Experience
-- 🎫 **Ticket System** - Automated ticket creation for each purchase
-- 🎨 **Modern UI** - Discord Components V2 (buttons, modals, dropdowns)
-- 🏷️ **Coupon System** - Discount codes with usage limits and expiration
-- 📊 **Admin Dashboard** - Statistics, order management, and user controls
+### Integração com Roblox
 
-### Technical Highlights
-- ⚡ **Fully Asynchronous** - Built with `asyncio` for high concurrency
-- 🗄️ **PostgreSQL Database** - Robust data persistence with SQLAlchemy ORM
-- 🔄 **Persistent Views** - Bot UI survives restarts
-- 📝 **Structured Logging** - Detailed logs with Loguru
+- 🎮 **Entrega Segura via Gamepass** - Utiliza o sistema oficial de Gamepass do Roblox
+- 👤 **Verificação de Usuários** - Valida usernames e IDs do Roblox via API
+- 🍪 **Gerenciamento de Sessão** - Manipulação segura da autenticação Roblox
 
-## 🛠 Tech Stack
+### Experiência no Discord
 
-| Category | Technologies |
-|----------|-------------|
-| **Runtime** | Python 3.10+ |
-| **Bot Framework** | discord.py 2.3+ |
-| **Database** | PostgreSQL with asyncpg |
-| **ORM** | SQLAlchemy 2.0 (async) |
-| **Payment Gateway** | Mercado Pago SDK |
-| **HTTP Client** | aiohttp, httpx |
-| **Configuration** | Pydantic Settings |
-| **Logging** | Loguru |
-| **Validation** | Pydantic |
+- 🎫 **Sistema de Tickets** - Criação automática de tickets para cada compra
+- 🎨 **Interface Moderna** - Discord Components V2 (botões, modais, dropdowns)
+- 🏷️ **Sistema de Cupons** - Códigos de desconto com limite de uso e expiração
+- 📊 **Painel Administrativo** - Estatísticas, gerenciamento de pedidos e controles
 
-## 🏗 Architecture
+### Destaques Técnicos
+
+- ⚡ **Totalmente Assíncrono** - Construído com `asyncio` para alta concorrência
+- 🗄️ **Banco de Dados PostgreSQL** - Persistência robusta com SQLAlchemy ORM
+- 🔄 **Views Persistentes** - Interface do bot sobrevive a reinicializações
+- 📝 **Logging Estruturado** - Logs detalhados com Loguru
+
+## 🛠 Tecnologias
+
+| Categoria                | Tecnologias            |
+| ------------------------ | ---------------------- |
+| **Runtime**              | Python 3.10+           |
+| **Framework do Bot**     | discord.py 2.3+        |
+| **Banco de Dados**       | PostgreSQL com asyncpg |
+| **ORM**                  | SQLAlchemy 2.0 (async) |
+| **Gateway de Pagamento** | Mercado Pago SDK       |
+| **Cliente HTTP**         | aiohttp, httpx         |
+| **Configuração**         | Pydantic Settings      |
+| **Logging**              | Loguru                 |
+| **Validação**            | Pydantic               |
+
+## 🏗 Arquitetura
 
 ```
 robux/
-├── main.py                    # Bot initialization and event handlers
-├── run.py                     # Entry point with error handling
-├── requirements.txt           # Python dependencies
-├── .env.example               # Environment variables template
+├── main.py                    # Inicialização do bot e event handlers
+├── run.py                     # Ponto de entrada com tratamento de erros
+├── requirements.txt           # Dependências Python
+├── .env.example               # Template de variáveis de ambiente
 │
 └── src/
     ├── config/
-    │   └── settings.py        # Centralized configuration with Pydantic
+    │   └── settings.py        # Configuração centralizada com Pydantic
     │
     ├── database/
-    │   ├── connection.py      # Async PostgreSQL connection pool
-    │   ├── models.py          # SQLAlchemy ORM models
-    │   └── repositories.py    # Data access layer (Repository Pattern)
+    │   ├── connection.py      # Pool de conexões async do PostgreSQL
+    │   ├── models.py          # Modelos ORM do SQLAlchemy
+    │   └── repositories.py    # Camada de acesso a dados (Repository Pattern)
     │
     ├── services/
-    │   ├── payment_service.py # Mercado Pago API integration
-    │   └── roblox_service.py  # Roblox API client with rate limiting
+    │   ├── payment_service.py # Integração com API do Mercado Pago
+    │   └── roblox_service.py  # Cliente da API do Roblox com rate limiting
     │
     └── cogs/
-        ├── tickets.py         # Ticket system and purchase flow
-        ├── orders.py          # Order management and delivery
-        ├── admin.py           # Administrative commands
-        └── user.py            # User-facing commands
+        ├── tickets.py         # Sistema de tickets e fluxo de compra
+        ├── orders.py          # Gerenciamento de pedidos e entregas
+        ├── admin.py           # Comandos administrativos
+        └── user.py            # Comandos para usuários
 ```
 
-### Design Patterns Used
+### Padrões de Projeto Utilizados
 
-- **Repository Pattern** - Abstracts database operations
-- **Service Layer** - Business logic separation
-- **Dependency Injection** - Centralized configuration via Pydantic
-- **Async/Await** - Non-blocking I/O for all external calls
-- **Rate Limiting** - Prevents API throttling with aiolimiter
+- **Repository Pattern** - Abstração das operações de banco de dados
+- **Service Layer** - Separação da lógica de negócios
+- **Dependency Injection** - Configuração centralizada via Pydantic
+- **Async/Await** - I/O não-bloqueante para todas as chamadas externas
+- **Rate Limiting** - Previne throttling de APIs com aiolimiter
 
-## 📦 Installation
+## 📦 Instalação
 
-### Prerequisites
+### Pré-requisitos
 
-- Python 3.10 or higher
+- Python 3.10 ou superior
 - PostgreSQL 13+
-- Discord Bot Token ([Developer Portal](https://discord.com/developers/applications))
-- Mercado Pago Account ([Developers](https://www.mercadopago.com.br/developers))
-- Roblox Account with a published game
+- Token do Bot Discord ([Developer Portal](https://discord.com/developers/applications))
+- Conta no Mercado Pago ([Developers](https://www.mercadopago.com.br/developers))
+- Conta Roblox com um jogo publicado
 
-### Setup
+### Configuração do Ambiente
 
 ```bash
-# Clone the repository
+# Clone o repositório
 git clone https://github.com/yourusername/robux-bot.git
 cd robux-bot
 
-# Create virtual environment
+# Crie o ambiente virtual
 python -m venv venv
 
-# Activate (Windows)
+# Ative (Windows)
 .\venv\Scripts\activate
 
-# Activate (Linux/macOS)
+# Ative (Linux/macOS)
 source venv/bin/activate
 
-# Install dependencies
+# Instale as dependências
 pip install -r requirements.txt
 
-# Copy environment template
+# Copie o template de ambiente
 cp .env.example .env
 ```
 
-## ⚙️ Configuration
+## ⚙️ Configuração
 
-Edit the `.env` file with your credentials:
+Edite o arquivo `.env` com suas credenciais:
 
 ```env
 # Discord
-DISCORD_TOKEN=your_bot_token
-DISCORD_GUILD_ID=your_server_id
+DISCORD_TOKEN=seu_token_do_bot
+DISCORD_GUILD_ID=id_do_seu_servidor
 
-# Database
-DATABASE_URL=postgresql+asyncpg://user:password@localhost:5432/robux_bot
+# Banco de Dados
+DATABASE_URL=postgresql+asyncpg://usuario:senha@localhost:5432/robux_bot
 
 # Mercado Pago
-MERCADOPAGO_ACCESS_TOKEN=your_access_token
+MERCADOPAGO_ACCESS_TOKEN=seu_access_token
 
 # Roblox
-ROBLOX_COOKIE=your_roblosecurity_cookie
-ROBLOX_USER_ID=your_user_id
-ROBLOX_UNIVERSE_ID=your_game_universe_id
+ROBLOX_COOKIE=seu_cookie_roblosecurity
+ROBLOX_USER_ID=seu_user_id
+ROBLOX_UNIVERSE_ID=universe_id_do_seu_jogo
 ```
 
-### Discord Bot Setup
+### Configuração do Bot no Discord
 
-1. Create application at [Discord Developer Portal](https://discord.com/developers/applications)
-2. Enable **Privileged Gateway Intents**:
+1. Crie uma aplicação no [Discord Developer Portal](https://discord.com/developers/applications)
+2. Ative as **Privileged Gateway Intents**:
    - Message Content Intent
    - Server Members Intent
    - Presence Intent
-3. Generate invite link with `Administrator` permission
-4. Invite bot to your server
+3. Gere o link de convite com permissão de `Administrator`
+4. Convide o bot para seu servidor
 
-## 🚀 Usage
+## 🚀 Uso
 
 ```bash
-# Start the bot
+# Inicie o bot
 python main.py
 ```
 
-### Commands
+### Comandos
 
-#### User Commands
-| Command | Description |
-|---------|-------------|
-| `/perfil` | View your profile and purchase history |
-| `/pedidos` | List your orders |
-| `/preco <amount>` | Calculate price for Robux amount |
-| `/verificar_usuario <username>` | Verify a Roblox username |
-| `/ajuda` | Display help information |
+#### Comandos de Usuário
 
-#### Admin Commands
-| Command | Description |
-|---------|-------------|
-| `/cupom_criar <code> <discount>` | Create discount coupon |
-| `/cupom_desativar <code>` | Deactivate coupon |
-| `/pedido <id>` | View order details |
-| `/entregar <id>` | Manual delivery |
-| `/reembolsar <id>` | Process refund |
-| `/stats` | View sales statistics |
-| `/top_compradores` | Top buyers leaderboard |
-| `/setup_painel` | Initialize sales panel |
+| Comando                         | Descrição                     |
+| ------------------------------- | ----------------------------- |
+| `/perfil`                       | Exibe seu perfil e histórico  |
+| `/pedidos`                      | Lista seus pedidos            |
+| `/preco <quantidade>`           | Calcula preço para quantidade |
+| `/verificar_usuario <username>` | Verifica um usuário do Roblox |
+| `/ajuda`                        | Exibe informações de ajuda    |
 
-### Purchase Flow
+#### Comandos de Administrador
+
+| Comando                            | Descrição                    |
+| ---------------------------------- | ---------------------------- |
+| `/cupom_criar <código> <desconto>` | Cria cupom de desconto       |
+| `/cupom_desativar <código>`        | Desativa um cupom            |
+| `/pedido <id>`                     | Consulta detalhes do pedido  |
+| `/entregar <id>`                   | Entrega manual               |
+| `/reembolsar <id>`                 | Processa reembolso           |
+| `/stats`                           | Exibe estatísticas de vendas |
+| `/top_compradores`                 | Ranking de compradores       |
+| `/setup_painel`                    | Configura painel de vendas   |
+
+### Fluxo de Compra
 
 ```
-1. Customer clicks "Buy Robux" → Ticket created
-2. Customer enters amount + Roblox username
-3. PIX payment generated automatically
-4. Payment verified in real-time
-5. Gamepass link provided to customer
-6. Customer purchases Gamepass → Robux delivered
+1. Cliente clica em "Comprar Robux" → Ticket criado
+2. Cliente informa quantidade + usuário Roblox
+3. Pagamento PIX gerado automaticamente
+4. Pagamento verificado em tempo real
+5. Link do Gamepass disponibilizado
+6. Cliente compra o Gamepass → Robux entregues
 ```
 
-## 🔒 Security Considerations
+## 🔒 Considerações de Segurança
 
-- **Environment Variables** - All secrets stored in `.env` (gitignored)
-- **Cookie Security** - Roblox cookie never logged or exposed
-- **Input Validation** - Pydantic validators for all user input
-- **Rate Limiting** - Prevents API abuse
-- **Gamepass Method** - Uses Roblox's official, ToS-compliant delivery method
+- **Variáveis de Ambiente** - Todos os segredos armazenados em `.env` (ignorado pelo git)
+- **Segurança do Cookie** - Cookie do Roblox nunca é logado ou exposto
+- **Validação de Entrada** - Validators do Pydantic para todos os inputs
+- **Rate Limiting** - Previne abuso das APIs
+- **Método Gamepass** - Utiliza método oficial do Roblox, compatível com ToS
 
-## 📊 Database Schema
+## 📊 Esquema do Banco de Dados
 
 ```sql
--- Core entities
-Users       → Discord/Roblox user data, purchase history
-Orders      → Transaction records with status tracking
-Tickets     → Support ticket management
-Coupons     → Discount codes with usage limits
+-- Entidades principais
+Users       → Dados do usuário Discord/Roblox, histórico de compras
+Orders      → Registros de transações com rastreamento de status
+Tickets     → Gerenciamento de tickets de suporte
+Coupons     → Códigos de desconto com limites de uso
 ```
 
-## 🤝 Contributing
+## 🤝 Contribuindo
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contribuições são bem-vindas! Sinta-se à vontade para abrir um Pull Request.
 
-## 📄 License
+## 📄 Licença
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## 📞 Contact
+## 📞 Contato
 
-For questions or suggestions, please open an issue or reach out via Discord.
+Para dúvidas ou sugestões, abra uma issue ou entre em contato via Discord.
 
 ---
 
 <p align="center">
-  <sub>Built with ❤️ using Python and discord.py</sub>
+  <sub>Desenvolvido com ❤️ usando Python e discord.py</sub>
 </p>
