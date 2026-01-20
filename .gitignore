@@ -1,3 +1,7 @@
+# ================================
+# Python
+# ================================
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -23,38 +27,114 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-# Virtual environments
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# ================================
+# Virtual Environments
+# ================================
 venv/
 ENV/
 env/
 .venv/
+.conda/
 
-# Environment variables
+# ================================
+# Environment Variables & Secrets
+# ================================
 .env
 .env.local
 .env.*.local
+.env.production
+.env.development
 
-# IDE
+# ================================
+# SSL/TLS Certificates (SENSITIVE)
+# ================================
+certs/
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+
+# ================================
+# IDE & Editor
+# ================================
 .idea/
 .vscode/
 *.swp
 *.swo
 *~
+.project
+.pydevproject
+.settings/
+*.sublime-workspace
+*.sublime-project
 
-# Logs
+# ================================
+# Logs & Debug
+# ================================
 logs/
 *.log
+debug.log
+error.log
 
+# ================================
 # Database
+# ================================
 *.db
 *.sqlite3
+*.sql.backup
 
-# OS
+# ================================
+# OS Generated Files
+# ================================
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+desktop.ini
 
-# Project specific
+# ================================
+# Project Specific
+# ================================
 data/
 backups/
 temp/
+exports/
+uploads/
+
+# ================================
+# Docker
+# ================================
+docker-compose.override.yml

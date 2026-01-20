@@ -1,175 +1,253 @@
-# 🎮 Bot de Vendas de Robux para Discord
+<h1 align="center">
+  <br>
+  <img src="https://img.shields.io/badge/Discord-Bot-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord Bot">
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <br>
+  🎮 Robux Sales Bot
+  <br>
+</h1>
 
-Bot profissional para vendas de Robux via Discord com integração PIX (Mercado Pago) e entrega via Gamepasses.
+<p align="center">
+  <strong>A professional Discord bot for automated Robux sales with PIX payment integration and secure Gamepass delivery.</strong>
+</p>
 
-## 📋 Funcionalidades
+<p align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-architecture">Architecture</a> •
+  <a href="#-installation">Installation</a> •
+  <a href="#-configuration">Configuration</a> •
+  <a href="#-usage">Usage</a> •
+  <a href="#-license">License</a>
+</p>
 
-- ✅ Sistema de Tickets/Carrinhos
-- ✅ Pagamento via PIX automático (Mercado Pago)
-- ✅ Verificação automática de pagamentos
-- ✅ Sistema de Cupons de desconto
-- ✅ Logs completos de transações
-- ✅ Comandos administrativos
-- ✅ Entrega via Gamepasses (método seguro do Roblox)
-- ✅ Interface com botões e modais (Discord Components V2)
-
-## 🚀 Instalação
-
-### 1. Pré-requisitos
-
-- Python 3.10+
-- MongoDB
-- Conta de desenvolvedor Discord
-- Conta Mercado Pago
-- Conta Roblox com jogo publicado
-
-### 2. Configuração do Ambiente
-
-```powershell
-# Clone o repositório
-cd c:\dev\bot\robux
-
-# Crie o ambiente virtual
-python -m venv venv
-
-# Ative o ambiente virtual
-.\venv\Scripts\Activate.ps1
-
-# Instale as dependências
-pip install -r requirements.txt
-```
-
-### 3. Configuração
-
-1. Copie o arquivo de exemplo:
-
-```powershell
-Copy-Item .env.example .env
-```
-
-2. Edite o `.env` com suas credenciais:
-
-- **DISCORD_TOKEN**: Token do bot Discord
-- **DISCORD_GUILD_ID**: ID do seu servidor
-- **MERCADOPAGO_ACCESS_TOKEN**: Token do Mercado Pago
-- **ROBLOX_COOKIE**: Cookie .ROBLOSECURITY da sua conta
-- **MONGODB_URI**: URI do MongoDB
-
-### 4. Configuração do Discord
-
-1. Crie um bot no [Discord Developer Portal](https://discord.com/developers/applications)
-2. Ative as Intents: `Message Content`, `Server Members`, `Guilds`
-3. Convide o bot com permissões de `Administrator`
-
-### 5. Configuração do Mercado Pago
-
-1. Crie uma conta no [Mercado Pago Developers](https://www.mercadopago.com.br/developers)
-2. Obtenha o Access Token de produção
-3. Configure o webhook (opcional, para confirmação instantânea)
-
-### 6. Configuração do Roblox
-
-1. Tenha um jogo publicado no Roblox
-2. Obtenha o Universe ID do jogo
-3. Obtenha o cookie .ROBLOSECURITY (DevTools > Application > Cookies)
-
-### 7. Executar
-
-```powershell
-# Ativar ambiente virtual
-.\venv\Scripts\Activate.ps1
-
-# Iniciar o bot
-python main.py
-```
-
-## 📁 Estrutura do Projeto
-
-```
-robux/
-├── main.py                 # Arquivo principal
-├── requirements.txt        # Dependências
-├── .env.example           # Exemplo de configuração
-├── .env                   # Suas configurações (não committar!)
-├── .gitignore
-├── README.md
-├── logs/                  # Logs do bot
-└── src/
-    ├── __init__.py
-    ├── config/
-    │   ├── __init__.py
-    │   └── settings.py    # Configurações centralizadas
-    ├── database/
-    │   ├── __init__.py
-    │   ├── connection.py  # Conexão MongoDB
-    │   ├── models.py      # Modelos de dados
-    │   └── repositories.py # Operações do banco
-    ├── services/
-    │   ├── __init__.py
-    │   ├── payment_service.py  # Mercado Pago
-    │   └── roblox_service.py   # API do Roblox
-    └── cogs/
-        ├── __init__.py
-        ├── tickets.py     # Sistema de tickets
-        ├── orders.py      # Gestão de pedidos
-        ├── admin.py       # Comandos admin
-        └── user.py        # Comandos de usuário
-```
-
-## 🔧 Comandos
-
-### Usuários
-
-| Comando                         | Descrição               |
-| ------------------------------- | ----------------------- |
-| `/perfil`                       | Mostra seu perfil       |
-| `/pedidos`                      | Lista seus pedidos      |
-| `/preco <quantidade>`           | Calcula preço           |
-| `/verificar_usuario <username>` | Verifica usuário Roblox |
-| `/ajuda`                        | Mostra ajuda            |
-
-### Administradores
-
-| Comando                            | Descrição                  |
-| ---------------------------------- | -------------------------- |
-| `/cupom_criar <código> <desconto>` | Cria cupom                 |
-| `/cupom_desativar <código>`        | Desativa cupom             |
-| `/pedido <id>`                     | Consulta pedido            |
-| `/entregar <id>`                   | Entrega manual             |
-| `/reembolsar <id>`                 | Reembolsa pedido           |
-| `/stats`                           | Estatísticas               |
-| `/top_compradores`                 | Ranking de compradores     |
-| `/anunciar <mensagem>`             | Envia anúncio              |
-| `/setup_painel`                    | Configura painel de vendas |
-
-## 💳 Fluxo de Compra
-
-1. **Cliente clica em "Comprar Robux"** no canal de vendas
-2. **Ticket é criado** automaticamente
-3. **Cliente informa** quantidade de Robux e usuário Roblox
-4. **PIX é gerado** automaticamente
-5. **Pagamento é verificado** em tempo real
-6. **Gamepass é disponibilizado** para o cliente comprar
-7. **Robux são creditados** na conta do cliente
-
-## 🔒 Segurança
-
-- Método de entrega via Gamepass é 100% permitido pelo Roblox
-- Nenhuma senha ou cookie do cliente é solicitado
-- Pagamentos verificados automaticamente via API do Mercado Pago
-- Logs completos de todas as transações
-
-## ⚠️ Avisos Importantes
-
-1. **Nunca compartilhe** seu cookie .ROBLOSECURITY
-2. **Use uma conta secundária** do Roblox para as vendas
-3. **Mantenha o MongoDB** seguro e com backup
-4. **Monitore os logs** regularmente
-
-## 📞 Suporte
-
-Para dúvidas ou problemas, abra uma issue ou entre em contato.
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Production-brightgreen?style=flat-square" alt="Status">
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/discord.py-2.3+-5865F2?style=flat-square" alt="discord.py">
+</p>
 
 ---
 
-Desenvolvido com ❤️ usando Python e discord.py
+## 📋 Overview
+
+This project is a **full-featured Discord bot** designed to automate the sale and delivery of Robux (Roblox virtual currency). It integrates with **Mercado Pago** for PIX payments (Brazilian instant payment system) and the **Roblox API** for secure Gamepass-based delivery.
+
+> ⚠️ **Note:** This is a portfolio project demonstrating backend development, API integration, and asynchronous programming skills. Robux trading involves Roblox's Terms of Service considerations.
+
+## ✨ Features
+
+### Payment & Transactions
+- 🔐 **Automated PIX Payments** - Integration with Mercado Pago API for instant Brazilian PIX payments
+- ⏱️ **Real-time Payment Verification** - Automatic polling for payment confirmation
+- 🧾 **Transaction Logging** - Complete audit trail of all transactions
+
+### Roblox Integration
+- 🎮 **Secure Gamepass Delivery** - Uses Roblox's official Gamepass system (ToS-compliant method)
+- 👤 **User Verification** - Validates Roblox usernames and IDs via API
+- 🍪 **Session Management** - Secure handling of Roblox authentication
+
+### Discord Experience
+- 🎫 **Ticket System** - Automated ticket creation for each purchase
+- 🎨 **Modern UI** - Discord Components V2 (buttons, modals, dropdowns)
+- 🏷️ **Coupon System** - Discount codes with usage limits and expiration
+- 📊 **Admin Dashboard** - Statistics, order management, and user controls
+
+### Technical Highlights
+- ⚡ **Fully Asynchronous** - Built with `asyncio` for high concurrency
+- 🗄️ **PostgreSQL Database** - Robust data persistence with SQLAlchemy ORM
+- 🔄 **Persistent Views** - Bot UI survives restarts
+- 📝 **Structured Logging** - Detailed logs with Loguru
+
+## 🛠 Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Runtime** | Python 3.10+ |
+| **Bot Framework** | discord.py 2.3+ |
+| **Database** | PostgreSQL with asyncpg |
+| **ORM** | SQLAlchemy 2.0 (async) |
+| **Payment Gateway** | Mercado Pago SDK |
+| **HTTP Client** | aiohttp, httpx |
+| **Configuration** | Pydantic Settings |
+| **Logging** | Loguru |
+| **Validation** | Pydantic |
+
+## 🏗 Architecture
+
+```
+robux/
+├── main.py                    # Bot initialization and event handlers
+├── run.py                     # Entry point with error handling
+├── requirements.txt           # Python dependencies
+├── .env.example               # Environment variables template
+│
+└── src/
+    ├── config/
+    │   └── settings.py        # Centralized configuration with Pydantic
+    │
+    ├── database/
+    │   ├── connection.py      # Async PostgreSQL connection pool
+    │   ├── models.py          # SQLAlchemy ORM models
+    │   └── repositories.py    # Data access layer (Repository Pattern)
+    │
+    ├── services/
+    │   ├── payment_service.py # Mercado Pago API integration
+    │   └── roblox_service.py  # Roblox API client with rate limiting
+    │
+    └── cogs/
+        ├── tickets.py         # Ticket system and purchase flow
+        ├── orders.py          # Order management and delivery
+        ├── admin.py           # Administrative commands
+        └── user.py            # User-facing commands
+```
+
+### Design Patterns Used
+
+- **Repository Pattern** - Abstracts database operations
+- **Service Layer** - Business logic separation
+- **Dependency Injection** - Centralized configuration via Pydantic
+- **Async/Await** - Non-blocking I/O for all external calls
+- **Rate Limiting** - Prevents API throttling with aiolimiter
+
+## 📦 Installation
+
+### Prerequisites
+
+- Python 3.10 or higher
+- PostgreSQL 13+
+- Discord Bot Token ([Developer Portal](https://discord.com/developers/applications))
+- Mercado Pago Account ([Developers](https://www.mercadopago.com.br/developers))
+- Roblox Account with a published game
+
+### Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/robux-bot.git
+cd robux-bot
+
+# Create virtual environment
+python -m venv venv
+
+# Activate (Windows)
+.\venv\Scripts\activate
+
+# Activate (Linux/macOS)
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Copy environment template
+cp .env.example .env
+```
+
+## ⚙️ Configuration
+
+Edit the `.env` file with your credentials:
+
+```env
+# Discord
+DISCORD_TOKEN=your_bot_token
+DISCORD_GUILD_ID=your_server_id
+
+# Database
+DATABASE_URL=postgresql+asyncpg://user:password@localhost:5432/robux_bot
+
+# Mercado Pago
+MERCADOPAGO_ACCESS_TOKEN=your_access_token
+
+# Roblox
+ROBLOX_COOKIE=your_roblosecurity_cookie
+ROBLOX_USER_ID=your_user_id
+ROBLOX_UNIVERSE_ID=your_game_universe_id
+```
+
+### Discord Bot Setup
+
+1. Create application at [Discord Developer Portal](https://discord.com/developers/applications)
+2. Enable **Privileged Gateway Intents**:
+   - Message Content Intent
+   - Server Members Intent
+   - Presence Intent
+3. Generate invite link with `Administrator` permission
+4. Invite bot to your server
+
+## 🚀 Usage
+
+```bash
+# Start the bot
+python main.py
+```
+
+### Commands
+
+#### User Commands
+| Command | Description |
+|---------|-------------|
+| `/perfil` | View your profile and purchase history |
+| `/pedidos` | List your orders |
+| `/preco <amount>` | Calculate price for Robux amount |
+| `/verificar_usuario <username>` | Verify a Roblox username |
+| `/ajuda` | Display help information |
+
+#### Admin Commands
+| Command | Description |
+|---------|-------------|
+| `/cupom_criar <code> <discount>` | Create discount coupon |
+| `/cupom_desativar <code>` | Deactivate coupon |
+| `/pedido <id>` | View order details |
+| `/entregar <id>` | Manual delivery |
+| `/reembolsar <id>` | Process refund |
+| `/stats` | View sales statistics |
+| `/top_compradores` | Top buyers leaderboard |
+| `/setup_painel` | Initialize sales panel |
+
+### Purchase Flow
+
+```
+1. Customer clicks "Buy Robux" → Ticket created
+2. Customer enters amount + Roblox username
+3. PIX payment generated automatically
+4. Payment verified in real-time
+5. Gamepass link provided to customer
+6. Customer purchases Gamepass → Robux delivered
+```
+
+## 🔒 Security Considerations
+
+- **Environment Variables** - All secrets stored in `.env` (gitignored)
+- **Cookie Security** - Roblox cookie never logged or exposed
+- **Input Validation** - Pydantic validators for all user input
+- **Rate Limiting** - Prevents API abuse
+- **Gamepass Method** - Uses Roblox's official, ToS-compliant delivery method
+
+## 📊 Database Schema
+
+```sql
+-- Core entities
+Users       → Discord/Roblox user data, purchase history
+Orders      → Transaction records with status tracking
+Tickets     → Support ticket management
+Coupons     → Discount codes with usage limits
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Contact
+
+For questions or suggestions, please open an issue or reach out via Discord.
+
+---
+
+<p align="center">
+  <sub>Built with ❤️ using Python and discord.py</sub>
+</p>
